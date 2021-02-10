@@ -103,7 +103,7 @@
             {
               let key = contact.FullName.slice(0,1) + Date.now();
 
-              localStorage.setItem(key, contact.serialize());
+              localStorage.setItem((key, contact.serialize()));
             }
           }
         });
@@ -145,7 +145,7 @@
 
         //TODO - need to create an edit page
         $("button.edit").on("click", function(){
-          location.href = "edit.html#" + $(this).val();
+          console.log($(this).val());
          });
 
          $("button.delete").on("click", function(){
@@ -158,53 +158,9 @@
       }
     }
 
-
-    function displayEdit() 
+    
+    function displayContactList() 
     {
-      // Get the Key from the url hash
-      let key = location.hash.substring(1);
-      // Set up a new contact to hold info
-      let contact = new core.Contact();
-
-      // Check if the key is empty, if not
-      if (key != "")
-      {
-        // Get the contact information
-        contact.deserialize(localStorage.getItem(key));
-
-        // Display the information in the form
-        $("#fullName").val(contact.FullName);
-        $("#contactNumber").val(contact.ContactNumber);
-        $("#emailAddress").val(contact.EmailAddress);
-      }
-
-      // When the edit button is clicked
-      $("#editButton").on("click", function()
-      {
-        // If the key is empty, we are making a new contact
-        if(key == "")
-        {
-          // Create a new key for this contact
-          key = contact.FullName.slice(0,1) + Date.now();
-        }
-
-        // Copy the Contact Info from the form into the Contact Objet
-        contact.FullName = $("#fullName").val();
-        contact.ContactNumber = $("#contactNumber").val();
-        contact.EmailAddress = $("#emailAddress").val();
-      
-        // Add the Contact to LocalStorage
-        localStorage.setItem(key, contact.serialize());
-        location.href = "contact-list.html";
-
-      });
-
-      // When the Cancel Button is clicked
-      $("#cancelButton").on("click", function()
-      {
-        // Return the user to the contact list
-        location.href = "contact-list.html";
-      });
 
     }
 

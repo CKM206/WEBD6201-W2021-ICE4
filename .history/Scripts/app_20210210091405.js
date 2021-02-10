@@ -193,16 +193,13 @@
         contact.ContactNumber = $("#contactNumber").val();
         contact.EmailAddress = $("#emailAddress").val();
       
-        // Add the Contact to LocalStorage
         localStorage.setItem(key, contact.serialize());
         location.href = "contact-list.html";
 
       });
 
-      // When the Cancel Button is clicked
       $("#cancelButton").on("click", function()
       {
-        // Return the user to the contact list
         location.href = "contact-list.html";
       });
 

@@ -199,10 +199,8 @@
 
       });
 
-      // When the Cancel Button is clicked
       $("#cancelButton").on("click", function()
       {
-        // Return the user to the contact list
         location.href = "contact-list.html";
       });
 

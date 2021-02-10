@@ -101,9 +101,9 @@
 
             if(contact.serialize())
             {
-              let key = contact.FullName.slice(0,1) + Date.now();
+              let key = contact.FullName .substring(0,1) + Date.now();
 
-              localStorage.setItem(key, contact.serialize());
+              localStorage.setItem((localStorage.length + 1).toString(), contact.serialize());
             }
           }
         });
@@ -118,8 +118,6 @@
         let data = "";
 
         let keys = Object.keys(localStorage);
-
-        let index = 0;
         
         for (const key of keys) 
         {
@@ -130,22 +128,20 @@
           contact.deserialize(contactData);
 
           data += `<tr>
-          <th scope="row">${index}</th>
+          <th scope="row">${key}</th>
           <td>${contact.FullName}</td>
           <td>${contact.ContactNumber}</td>
           <td>${contact.EmailAddress}</td>
           <td class="text-center"><button value="${key}" class="btn btn-primary btn-sm edit"><i class="fas fa-edit fa-sm"></i> Edit</button></td>
           <td class="text-center"><button value="${key}" class="btn btn-danger btn-sm delete"><i class="fas fa-trash-alt fa-sm"></i> Delete</button></td>
         </tr>`;
-
-        index++;
         }
 
         contactList.innerHTML = data;
 
         //TODO - need to create an edit page
         $("button.edit").on("click", function(){
-          location.href = "edit.html#" + $(this).val();
+          console.log($(this).val());
          });
 
          $("button.delete").on("click", function(){
@@ -158,56 +154,7 @@
       }
     }
 
-
-    function displayEdit() 
-    {
-      // Get the Key from the url hash
-      let key = location.hash.substring(1);
-      // Set up a new contact to hold info
-      let contact = new core.Contact();
-
-      // Check if the key is empty, if not
-      if (key != "")
-      {
-        // Get the contact information
-        contact.deserialize(localStorage.getItem(key));
-
-        // Display the information in the form
-        $("#fullName").val(contact.FullName);
-        $("#contactNumber").val(contact.ContactNumber);
-        $("#emailAddress").val(contact.EmailAddress);
-      }
-
-      // When the edit button is clicked
-      $("#editButton").on("click", function()
-      {
-        // If the key is empty, we are making a new contact
-        if(key == "")
-        {
-          // Create a new key for this contact
-          key = contact.FullName.slice(0,1) + Date.now();
-        }
-
-        // Copy the Contact Info from the form into the Contact Objet
-        contact.FullName = $("#fullName").val();
-        contact.ContactNumber = $("#contactNumber").val();
-        contact.EmailAddress = $("#emailAddress").val();
-      
-        // Add the Contact to LocalStorage
-        localStorage.setItem(key, contact.serialize());
-        location.href = "contact-list.html";
-
-      });
-
-      // When the Cancel Button is clicked
-      $("#cancelButton").on("click", function()
-      {
-        // Return the user to the contact list
-        location.href = "contact-list.html";
-      });
-
-    }
-
+     
 
     function Start()
     {
@@ -232,9 +179,6 @@
             break;
           case "Contact-List":
             displayContactList();
-          break;
-          case "Edit":
-            displayEdit();
           break;
         }
         
