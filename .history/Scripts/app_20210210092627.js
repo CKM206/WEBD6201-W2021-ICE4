@@ -130,7 +130,7 @@
           contact.deserialize(contactData);
 
           data += `<tr>
-          <th class="text-center" scope="row">${index}</th>
+          <th scope="row">${index}</th>
           <td>${contact.FullName}</td>
           <td>${contact.ContactNumber}</td>
           <td>${contact.EmailAddress}</td>
@@ -158,7 +158,6 @@
 
          $("#addButton").on("click", function()
          {
-           location.href = "edit.html";
          });
       }
     }
@@ -181,11 +180,6 @@
         $("#fullName").val(contact.FullName);
         $("#contactNumber").val(contact.ContactNumber);
         $("#emailAddress").val(contact.EmailAddress);
-      }
-      else
-      {
-        $("main>h1").text("Add Contact");
-        $("#editButton").html('<i class="fas fa-plus-circle fa-lg"></i> Add');
       }
 
       // When the edit button is clicked

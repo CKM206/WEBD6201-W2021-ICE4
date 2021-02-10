@@ -130,7 +130,7 @@
           contact.deserialize(contactData);
 
           data += `<tr>
-          <th class="text-center" scope="row">${index}</th>
+          <th scope="row">${index}</th>
           <td>${contact.FullName}</td>
           <td>${contact.ContactNumber}</td>
           <td>${contact.EmailAddress}</td>
@@ -185,7 +185,7 @@
       else
       {
         $("main>h1").text("Add Contact");
-        $("#editButton").html('<i class="fas fa-plus-circle fa-lg"></i> Add');
+        $("#editButton").html('<i class="fas fa-plus fa-lg"></i> Add');
       }
 
       // When the edit button is clicked
