@@ -142,6 +142,7 @@
           console.log($(this).val());
          });
 
+         //TODO - need to fix this item - it breaks when we delete a middle item
          $("button.delete").on("click", function(){
            if(confirm("Are you sure?"))
            {
