@@ -244,7 +244,7 @@
       formValidation();
 
       // When the edit button is clicked
-      $("#editButton").one("click", function()
+      $("#editButton").on("click", function()
       {
 
         if(document.forms[0].checkValidity())
@@ -279,16 +279,6 @@
 
     }
 
-    function displayLogin()
-    {
-
-    }
-
-    function displayRegister()
-    {
-
-    }
-
 
     function Start()
     {
@@ -313,16 +303,10 @@
             break;
           case "Contact-List":
             displayContactList();
-            break;
+          break;
           case "Edit":
             displayEdit();
-            break;
-          case "Login":
-            displayLogin();
-            break;
-          case "Register":
-            displayRegister();
-            break;
+          break;
         }
         
     }

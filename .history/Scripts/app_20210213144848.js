@@ -244,7 +244,7 @@
       formValidation();
 
       // When the edit button is clicked
-      $("#editButton").one("click", function()
+      $("#editButton").on("click", function()
       {
 
         if(document.forms[0].checkValidity())
@@ -263,7 +263,7 @@
       
           // Add the Contact to LocalStorage
           localStorage.setItem(key, contact.serialize());
-          location.href = "contact-list.html";
+          //location.href = "contact-list.html";
         }
         
         
@@ -276,16 +276,6 @@
         // Return the user to the contact list
         location.href = "contact-list.html";
       });
-
-    }
-
-    function displayLogin()
-    {
-
-    }
-
-    function displayRegister()
-    {
 
     }
 
@@ -313,16 +303,10 @@
             break;
           case "Contact-List":
             displayContactList();
-            break;
+          break;
           case "Edit":
             displayEdit();
-            break;
-          case "Login":
-            displayLogin();
-            break;
-          case "Register":
-            displayRegister();
-            break;
+          break;
         }
         
     }

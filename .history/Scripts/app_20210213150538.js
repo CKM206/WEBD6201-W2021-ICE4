@@ -279,12 +279,12 @@
 
     }
 
-    function displayLogin()
+    displayLogin()
     {
 
     }
 
-    function displayRegister()
+    displayRegister()
     {
 
     }

@@ -279,16 +279,6 @@
 
     }
 
-    function displayLogin()
-    {
-
-    }
-
-    function displayRegister()
-    {
-
-    }
-
 
     function Start()
     {
@@ -313,16 +303,10 @@
             break;
           case "Contact-List":
             displayContactList();
-            break;
+          break;
           case "Edit":
             displayEdit();
-            break;
-          case "Login":
-            displayLogin();
-            break;
-          case "Register":
-            displayRegister();
-            break;
+          break;
         }
         
     }
