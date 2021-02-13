@@ -133,18 +133,12 @@
         });
     }
 
-    function formValidation()
-    {
-      testFullName();
-      testContactNumber();
-      testEmailAddress();
-    }
-
     function displayContact()
     {
 
       // Form Validation
-      formValidation();
+      testFullName();
+      testContactNumber();
 
       $("#sendButton").on("click", (event)=> 
       {
@@ -241,7 +235,9 @@
       }
 
       // Form Validation
-      formValidation();
+      testFullName();
+      testContactNumber();
+      testEmailAddress();
 
       // When the edit button is clicked
       $("#editButton").on("click", function()

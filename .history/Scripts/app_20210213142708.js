@@ -114,7 +114,7 @@
         });
     }
 
-    function testEmailAddress()
+    function testEmail()
     {
       let messageArea = $("#messageArea").hide();
       let emailAddressPattern = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/
@@ -133,18 +133,12 @@
         });
     }
 
-    function formValidation()
-    {
-      testFullName();
-      testContactNumber();
-      testEmailAddress();
-    }
-
     function displayContact()
     {
 
       // Form Validation
-      formValidation();
+      testFullName();
+      testContactNumber();
 
       $("#sendButton").on("click", (event)=> 
       {
@@ -241,7 +235,8 @@
       }
 
       // Form Validation
-      formValidation();
+      testFullName();
+      testContactNumber();
 
       // When the edit button is clicked
       $("#editButton").on("click", function()

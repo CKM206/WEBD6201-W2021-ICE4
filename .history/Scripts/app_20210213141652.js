@@ -95,56 +95,11 @@
         });
     }
 
-    function testContactNumber()
-    {
-      let messageArea = $("#messageArea").hide();
-      let contactNumberPattern = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/
-        // form validation
-        $("#contactNumber").on("blur", function()
-        {
-          if(!contactNumberPattern.test($(this).val()))
-          {
-            $(this).trigger("focus").trigger("select");
-            messageArea.show().addClass("alert alert-danger").text("Please enter a valid Contact Number. Country Code and Area Code are optional.");
-          }
-          else
-          {
-              messageArea.removeAttr("class").hide();
-          }
-        });
-    }
-
-    function testEmailAddress()
-    {
-      let messageArea = $("#messageArea").hide();
-      let emailAddressPattern = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/
-        // form validation
-        $("#emailAddress").on("blur", function()
-        {
-          if(!emailAddressPattern.test($(this).val()))
-          {
-            $(this).trigger("focus").trigger("select");
-            messageArea.show().addClass("alert alert-danger").text("Please enter a valid email address.");
-          }
-          else
-          {
-              messageArea.removeAttr("class").hide();
-          }
-        });
-    }
-
-    function formValidation()
-    {
-      testFullName();
-      testContactNumber();
-      testEmailAddress();
-    }
-
     function displayContact()
     {
 
       // Form Validation
-      formValidation();
+      testFullName();
 
       $("#sendButton").on("click", (event)=> 
       {
@@ -241,7 +196,7 @@
       }
 
       // Form Validation
-      formValidation();
+      testFullName();
 
       // When the edit button is clicked
       $("#editButton").on("click", function()

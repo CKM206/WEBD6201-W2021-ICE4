@@ -241,7 +241,9 @@
       }
 
       // Form Validation
-      formValidation();
+      testFullName();
+      testContactNumber();
+      testEmailAddress();
 
       // When the edit button is clicked
       $("#editButton").on("click", function()
